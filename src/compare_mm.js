@@ -16,11 +16,11 @@ const getTotalMonthsInYear = (year) => {
 };
 
 const getMonthFraction = (mp, fd) => {
-  const quarter = (mp + 1) * 0.25;
-  if (quarter === 0.5 || quarter === 1) {
-    return quarter;
-  }
-  return quarter + fd / 15;
+  const quarter = mp > 1 ? 0.5 : 0;
+
+  const day = mp == 1 || mp == 3 ? 15 : fd;
+
+  return quarter + (day / 15) * 0.5;
 };
 
 export const compare_mm = (date1, date2, type = "days") => {
@@ -44,7 +44,7 @@ export const compare_mm = (date1, date2, type = "days") => {
         monthDiff += getTotalMonthsInYear(y);
       }
       if (adj1.my !== adj2.my) {
-        monthDiff += getTotalMonthsInYear(adj1.my) - adj1.mm;
+        monthDiff += getTotalMonthsInYear(adj1.my) - adj1.mm + adj2.mm;
       } else {
         monthDiff += adj2.mm - adj1.mm;
       }
