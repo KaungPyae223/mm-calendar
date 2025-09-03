@@ -1,0 +1,35 @@
+/**
+ * Converts a Date object to a Julian Day Number (JDN).
+ *
+ * @param {Date} date The Date object to convert.
+ * @returns {number} The Julian Day Number.
+ *
+ * @example
+ * // Convert a Date object to a Julian Day Number
+ * const date = new Date();
+ * const jdn = en_to_jdn(date);
+ * console.log(jdn);
+ * // → 2460892
+ *
+ */
+
+export const en_to_jdn = (date) => {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  const a = Math.floor((14 - month) / 12);
+  const y = year + 4800 - a;
+  const m = month + 12 * a - 3;
+
+  const jd =
+    day +
+    Math.floor((153 * m + 2) / 5) +
+    365 * y +
+    Math.floor(y / 4) -
+    Math.floor(y / 100) +
+    Math.floor(y / 400) -
+    32045;
+
+  return jd;
+};
