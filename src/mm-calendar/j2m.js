@@ -33,7 +33,7 @@ export const j2m = (jd) => {
   const f = Math.floor((mm + 11) / 16);
   const md = dd - Math.floor(29.544 * mm - 29.26) - b * e + c * f * 30; //day
   mm += f * 3 - e * 4;
-  const mml = 30 - (mm % 2); //adjust month and month length
+  let mml = 30 - (mm % 2); //adjust month and month length
   if (mm == 3) mml += b; //adjust if Nayon in big watat
   const mp = Math.floor((md + 1) / 16) + Math.floor(md / 16) + Math.floor(md / mml);
   const fd = md - 15 * Math.floor(md / 16); //waxing or waning day
