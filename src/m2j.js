@@ -13,11 +13,11 @@ export const m2j = (my, mm, mmt, mp, fd) => {
   const yo = chk_my(my); //check year
   const b = Math.floor(yo.myt / 2);
   const c = yo.myt == 0; //if big watat and common year
-  const mml = 30 - (mm % 2); //month length
+  let mml = 30 - (mm % 2); //month length
   if (mm == 3) mml += b; //adjust if Nayon in big watat
   const m1 = mp % 2;
   const m2 = Math.floor(mp / 2);
-  const md = m1 * (15 + m2 * (mml - 15)) + (1 - m1) * (fd + 15 * m2);
+  let md = m1 * (15 + m2 * (mml - 15)) + (1 - m1) * (fd + 15 * m2);
   mm += 4 - Math.floor((mm + 15) / 16) * 4 + Math.floor((mm + 12) / 16); //adjust month
   let dd =
     md +

@@ -25,15 +25,15 @@ export const j2m = (jd) => {
   const b = Math.floor(yo.myt / 2);
   const c = Math.floor(1 / (yo.myt + 1)); //big wa and common yr
   const myl = 354 + (1 - c) * 30 + b; //year length
-  let mmt = Math.floor((dd - 1) / myl); //month type: Hnaung =1 or Oo = 0
+  const mmt = Math.floor((dd - 1) / myl); //month type: Hnaung =1 or Oo = 0
   dd -= mmt * myl;
   const a = Math.floor((dd + 423) / 512); //adjust day count and threshold
-  let mm = Math.floor((dd - b * a + c * a * 30 + 29.26) / 29.544); //month
+  const mm = Math.floor((dd - b * a + c * a * 30 + 29.26) / 29.544); //month
   const e = Math.floor((mm + 12) / 16);
   const f = Math.floor((mm + 11) / 16);
-  let md = dd - Math.floor(29.544 * mm - 29.26) - b * e + c * f * 30; //day
+  const md = dd - Math.floor(29.544 * mm - 29.26) - b * e + c * f * 30; //day
   mm += f * 3 - e * 4;
-  let mml = 30 - (mm % 2); //adjust month and month length
+  const mml = 30 - (mm % 2); //adjust month and month length
   if (mm == 3) mml += b; //adjust if Nayon in big watat
   const mp = Math.floor((md + 1) / 16) + Math.floor(md / 16) + Math.floor(md / mml);
   const fd = md - 15 * Math.floor(md / 16); //waxing or waning day
