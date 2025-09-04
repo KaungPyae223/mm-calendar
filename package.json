@@ -1,7 +1,7 @@
 {
   "name": "myanmar-cal",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.1.1",
   "type": "module",
   "main": "dist/mm-calendar.cjs.js",
   "module": "dist/mm-calendar.es.js",
