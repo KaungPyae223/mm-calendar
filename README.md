@@ -1,18 +1,16 @@
 # myanmar-cal
 
- 
-
 A JavaScript library for convenient use and calculation of Myanmar days.
 
 **Special Thanks**
 
 Most of the core features, like converting from Myanmar day to Gregorian day, Julian day and others, are based on this blog and some features are directly used. from this.
 
-   [Original Doc](https://cool-emerald.blogspot.com/2013/06/algorithm-program-and-calculation-of.html)
+[Original Doc](https://cool-emerald.blogspot.com/2013/06/algorithm-program-and-calculation-of.html)
 
 I only modified it and made some calculations based on this for ease of use.
-  
-  **Note**
+
+**Note**
 
 If you want to know details about this package, can you read the on this.
 
@@ -20,25 +18,24 @@ If you want to know details about this package, can you read the on this.
 
 ## Installation
 
-  
-
     npm  install  myanmar-cal
 
 ## Functions
 
-The list of the functions contain in this package are  
+The list of the functions contain in this package are
 
- - en_to_jdn
- - jdn_to_gregorian
- - thingyan_time
- - myanmar_compare
- - en_to_mm
- - mm_to_en
- - mm_to_jln
- - get_sabbath
- - tran_mm
- - num_eng_to_mm
- - num_mm_to_eng
+- en_to_jdn
+- jdn_to_gregorian
+- thingyan_time
+- myanmar_compare
+- en_to_mm
+- mm_to_en
+- mm_to_jln
+- get_sabbath
+- tran_mm
+- num_eng_to_mm
+- num_mm_to_eng
+- english_compare
 
 **1. en_to_jdn**
 
@@ -90,27 +87,26 @@ The Result
 
 Params
 
-|Param|Explain  |
-|--|--|
-| days | Compare the total days difference between two dates  |
-| months | Compare the total months' difference between two dates based on the Myanmar day-month system  |
-| years | Compare the total years' difference between two dates based on the Myanmar day-month system  |
-
+| Param  | Explain                                                                                      |
+| ------ | -------------------------------------------------------------------------------------------- |
+| days   | Compare the total days difference between two dates                                          |
+| months | Compare the total months' difference between two dates based on the Myanmar day-month system |
+| years  | Compare the total years' difference between two dates based on the Myanmar day-month system  |
 
 **5. en_to_mm**
 
-This function converts an English (Gregorian) date into a Myanmar date. To use it, pass in a JavaScript `Date` object. You can also specify parameters such as the project context and choose the output language you want the result in. 
+This function converts an English (Gregorian) date into a Myanmar date. To use it, pass in a JavaScript `Date` object. You can also specify parameters such as the project context and choose the output language you want the result in.
 
 The usage
 
     const  myanmarDate  =  en_to_mm(new  Date(),"mm"); // mm/en
 
-The result is 
+The result is
 
 > ၁၃၈၇ ခုနှစ် တော်သလင်း လဆန်း ၁၂ //If param **mm**
-> 1387 Year Tawthalin Waxing 12  //If param **en**
+> 1387 Year Tawthalin Waxing 12 //If param **en**
 
-**6.   mm_to_en**
+**6. mm_to_en**
 
 This function converts a Myanmar date into an English (Gregorian) date. To use it, provide a Myanmar date, and the function will return a JavaScript `Date` object.
 
@@ -118,33 +114,33 @@ This function converts a Myanmar date into an English (Gregorian) date. To use i
 
 The usage
 
-    const  englishDate  =  mm_to_en("၁၃၈၇ ခုနှစ် တော်သလင်း လဆန်း ၁၂"); 
+    const  englishDate  =  mm_to_en("၁၃၈၇ ခုနှစ် တော်သလင်း လဆန်း ၁၂");
 
 The result is
 
->Wed Sep 03 2025 00:00:00 GMT+0630 (Myanmar Time)
+> Wed Sep 03 2025 00:00:00 GMT+0630 (Myanmar Time)
 
-**7.   mm_to_jln**
+**7. mm_to_jln**
 
 This function is like a `mm_to_en`. It gives the Julian days.
 
-**8.   get_sabbath**
+**8. get_sabbath**
 
 In Myanmar, some schools close on sabbath days during the sabbath month. This function retrieves all the sabbath days within that month.
 
 It also includes a parameter that lets you specify whether or not to include the **pre-sabbath day** in the results.
 
- The usage
+The usage
 
-    const  sabbathDays  =  get_sabbath(new Date()); 
+    const  sabbathDays  =  get_sabbath(new Date());
 
 The params
 
-|Param|About  |
-|--|--|
-| none  | Only show the sabbath days  |
-| pre  | show the pre-Sabbath day (do not contain the pre-full moon day nor new moon day), Sabbath day  |
-| pre_moon  | show the pre-Sabbath day (also contain the pre-full moon day nor new moon day), Sabbath day  |
+| Param    | About                                                                                         |
+| -------- | --------------------------------------------------------------------------------------------- |
+| none     | Only show the sabbath days                                                                    |
+| pre      | show the pre-Sabbath day (do not contain the pre-full moon day nor new moon day), Sabbath day |
+| pre_moon | show the pre-Sabbath day (also contain the pre-full moon day nor new moon day), Sabbath day   |
 
 **9. tran_mm**
 
@@ -154,12 +150,11 @@ It is useful for users who cannot read English dates, allowing them to view date
 
 The usage
 
-    const myanmarLan  =  tran_mm(new Date()); 
+    const myanmarLan  =  tran_mm(new Date());
 
 The result
 
 > ၂၀၂၅ ခုနှစ် စက်တင်ဘာ ၃ ရက် (၃/၈/၂၀၂၅)
-
 
 **10. num_eng_to_mm**
 
@@ -169,7 +164,7 @@ It is useful for users who cannot read English numbers and easy to understand.
 
 The usage
 
-    const myanmarNum  =  num_eng_to_mm("1250"); 
+    const myanmarNum  =  num_eng_to_mm("1250");
 
 The result
 
@@ -179,16 +174,34 @@ The result
 
 This function is like a `num_eng_to_mm`. The difference is changing from Myanmar numbers to English numbers. Note: the output number is a string type.
 
-
 The usage
 
-    const englishNum  =  num_mm_to_eng("၁၂၅၀"); 
+    const englishNum  =  num_mm_to_eng("၁၂၅၀");
 
 The result
 
 > 1250
 
+**11. english_compare**
+
+This function compares two English dates like `myanmar_compare`.
+
+The usage
+
+    const monthDiff = english_compare(new Date("2024-09-01"), new Date("2025-09-01"), "months")
+
+The result
+
+> 12
+
+Params
+
+| Param  | About                                                                                        |
+| ------ | -------------------------------------------------------------------------------------------- |
+| days   | Compare the total days difference between two dates                                          |
+| months | Compare the total months' difference between two dates based on the English day-month system |
+| years  | Compare the total years' difference between two dates based on the English day-month system  |
 
 ---
 
-Made with love ( Kaung Pyae Aung ) 
+Made with love ( Kaung Pyae Aung )
