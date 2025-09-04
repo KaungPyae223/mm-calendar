@@ -28,7 +28,7 @@ export const j2m = (jd) => {
   const mmt = Math.floor((dd - 1) / myl); //month type: Hnaung =1 or Oo = 0
   dd -= mmt * myl;
   const a = Math.floor((dd + 423) / 512); //adjust day count and threshold
-  const mm = Math.floor((dd - b * a + c * a * 30 + 29.26) / 29.544); //month
+  let mm = Math.floor((dd - b * a + c * a * 30 + 29.26) / 29.544); //month
   const e = Math.floor((mm + 12) / 16);
   const f = Math.floor((mm + 11) / 16);
   const md = dd - Math.floor(29.544 * mm - 29.26) - b * e + c * f * 30; //day
