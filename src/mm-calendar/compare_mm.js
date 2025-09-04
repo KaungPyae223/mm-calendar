@@ -64,7 +64,11 @@ export const compare_mm = (date1, date2, type = "days") => {
       if (adj1.myt >= 4) adj1.mm -= 1;
       if (adj2.myt >= 4) adj2.mm -= 1;
 
-      const totalMonthDiff = adj2.mm - adj1.mm;
+      const totalMonthDiff =
+        adj2.mm -
+        adj1.mm +
+        (getMonthFraction(adj2.mp, adj2.fd) -
+          getMonthFraction(adj1.mp, adj1.fd));
       return adj2.my - adj1.my + totalMonthDiff / 12;
     }
 

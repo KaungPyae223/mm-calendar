@@ -9,5 +9,4 @@ export { get_sabbath } from "./mm-calendar/get_sabbath";
 export { tran_mm } from "./mm-calendar/tran_mm";
 export { num_eng_to_mm } from "./mm-calendar/num_eng_to_mm";
 export { num_mm_to_eng } from "./mm-calendar/num_mm_to_eng";
-
-
+export { english_compare } from "./mm-calendar/english_compare";
