@@ -182,7 +182,7 @@ The result
 
 > 1250
 
-**11. english_compare**
+**12. english_compare**
 
 This function compares two English dates like `myanmar_compare`.
 
