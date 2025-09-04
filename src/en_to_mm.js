@@ -20,6 +20,11 @@ import moon_phases from "./moon_phases";
  *
  */
 export const en_to_mm = (date, lang = "mm") => {
+
+  if (!(date instanceof Date)) {
+    throw new Error("Invalid date");
+  }
+
   const jdn = en_to_jdn(date);
   const mm = j2m(jdn);
 

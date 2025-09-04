@@ -18,6 +18,11 @@ import { jdn_to_gregorian } from "./jdn_to_gregorian";
  */
 
 export const thingyan_time = (my) => {
+
+  if (typeof my !== "number") {
+    throw new Error("Invalid Myanmar year");
+  }
+
   const SY = 1577917828 / 4320000;
   const MO = 1954168.050623;
   const SE3 = 1312;

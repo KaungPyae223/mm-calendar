@@ -15,6 +15,11 @@ import { mm_to_jln } from "./mm_to_jln";
  *
  */
 export const mm_to_en = (mm_date) => {
+
+  if (typeof mm_date !== "string") {
+    throw new Error("Invalid Myanmar date");
+  }
+
   const julianDay = mm_to_jln(mm_date);
 
   const gregorianDate = jdn_to_gregorian(julianDay);

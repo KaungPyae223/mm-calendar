@@ -18,6 +18,11 @@ import { m2j } from "./m2j";
  *
  */
 export const mm_to_jln = (mm_date) => {
+
+  if (typeof mm_date !== "string") {
+    throw new Error("Invalid Myanmar date");
+  }
+
   const lang = isMyanmarText(mm_date) ? "mm" : "en";
 
   const dateArray = mm_date.split(" ");

@@ -17,6 +17,10 @@ import { compare_mm } from "./compare_mm";
  *
  */
 export const myanmar_compare = (date1, date2, type = "days") => {
+  if (!(date1 instanceof Date) || !(date2 instanceof Date)) {
+    throw new Error("Both dates must be Date objects");
+  }
+
   if (date1 instanceof Date && date2 instanceof Date) {
     if (date1 > date2) {
       return -1 * compare_mm(date2, date1, type);

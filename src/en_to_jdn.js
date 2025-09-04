@@ -14,6 +14,11 @@
  */
 
 export const en_to_jdn = (date) => {
+
+  if (!date instanceof Date) {
+    throw new Error("Invalid date");
+  }
+
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();

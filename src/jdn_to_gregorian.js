@@ -13,6 +13,11 @@
  */
 
 export const jdn_to_gregorian = (jdn) => {
+
+  if (typeof jdn !== "number") {
+    throw new Error("Invalid Julian Day Number");
+  }
+
   let l = jdn + 68569;
   let n = Math.floor((4 * l) / 146097);
   l = l - Math.floor((146097 * n + 3) / 4);

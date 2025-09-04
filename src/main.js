@@ -7,4 +7,7 @@ export { mm_to_en } from "./mm_to_en";
 export { mm_to_jln } from "./mm_to_jln";
 export { get_sabbath } from "./get_sabbath";
 export { tran_mm } from "./tran_mm";
+export { num_eng_to_mm } from "./num_eng_to_mm";
+export { num_mm_to_eng } from "./num_mm_to_eng";
+
 

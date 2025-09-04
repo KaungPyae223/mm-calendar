@@ -17,6 +17,11 @@ import { jdn_to_gregorian } from "./jdn_to_gregorian";
  *
  */
 export const get_sabbath = (date, type = "default") => {
+
+  if (!(date instanceof Date)) {
+    throw new Error("Invalid date");
+  }
+
   const month = date.getMonth();
   const year = date.getFullYear();
 

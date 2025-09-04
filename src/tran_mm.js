@@ -29,6 +29,11 @@ const months = [
 ];
 
 export const tran_mm = (date) => {
+
+  if (!(date instanceof Date)) {
+    throw new Error("Invalid date");
+  }
+
   const Day = date.getDate();
   const Month = date.getMonth();
   const Year = date.getFullYear();
