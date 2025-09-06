@@ -79,7 +79,7 @@ If you want to work directly with Myanmar dates, you can first convert English d
 
 The usage
 
-    const monthDiff = myanmar_compare(new  Date("2024-09-01"), new  Date("2025-09-01"), "months")
+    const monthDiff = myanmar_compare(new  Date("2024-09-01"), new  Date("2025-09-01"), "months", "days")
 
 The Result
 
@@ -87,11 +87,20 @@ The Result
 
 Params
 
+In the month comparison, you can use **days** or **months** as the second parameter based on the day of the month comparison methods.
+
+You can see the details differences between the day of the month comparison methods [here](https://docs.google.com/document/d/1NVnYgnPmD6SNFqnqYQ8TLa-_yBnQ45BTuE9nB1W3h4Y/edit?usp=sharing).
+
 | Param  | Explain                                                                                      |
 | ------ | -------------------------------------------------------------------------------------------- |
 | days   | Compare the total days difference between two dates                                          |
 | months | Compare the total months' difference between two dates based on the Myanmar day-month system |
 | years  | Compare the total years' difference between two dates based on the Myanmar day-month system  |
+
+| Param  | Explain                                                                                                    |
+| ------ | ---------------------------------------------------------------------------------------------------------- |
+| days   | Based on the day of the month comparison methods (mostly used in the financial calculation)                |
+| months | Based on the position of the day of the month comparison methods (mostly used in the calendar calculation) |
 
 **5. en_to_mm**
 

@@ -15,15 +15,7 @@ const getTotalMonthsInYear = (year) => {
   return watat.watat === 1 ? 13 : 12;
 };
 
-const getMonthFraction = (mp, fd) => {
-  const quarter = mp > 1 ? 0.5 : 0;
-
-  const day = mp == 1 || mp == 3 ? 15 : fd;
-
-  return quarter + (day / 15) * 0.5;
-};
-
-export const compare_mm = (date1, date2, type = "days") => {
+export const compare_mm = (date1, date2, type = "days", monthType = "days") => {
   const jdn1 = en_to_jdn(date1);
   const jdn2 = en_to_jdn(date2);
 
@@ -49,10 +41,23 @@ export const compare_mm = (date1, date2, type = "days") => {
         monthDiff += adj2.mm - adj1.mm;
       }
 
-      const frac1 = getMonthFraction(adj1.mp, adj1.fd);
-      const frac2 = getMonthFraction(adj2.mp, adj2.fd);
+      switch (monthType) {
+        case "days":
+          const day1 = adj1.md > adj2.mml ? adj2.mml : adj1.md;
+          const day2 = adj2.md;
 
-      monthDiff += frac2 - frac1;
+          monthDiff += Math.floor(((day2 - day1) / 29.5) * 100) / 100;
+
+          break;
+        case "months":
+          const month1Portion = adj1.md / adj1.mml;
+          const month2Portion = adj2.md / adj2.mml;
+
+          monthDiff += Math.floor((month2Portion - month1Portion) * 100) / 100;
+          break;
+        default:
+          throw new Error(`Unknown comparison type: ${monthType}`);
+      }
 
       return monthDiff;
     }
