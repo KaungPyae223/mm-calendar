@@ -42,7 +42,7 @@ export const compare_en = (date1, date2, type) => {
     case "months": {
       const yearMonthDiff = (d2.year - d1.year) * 12 + (d2.month - d1.month);
 
-      const tempDay1 = d1.day > d2.monthLength ? d2.monthLength : d1.day;
+      const tempDay1 = Math.min(d1.day, d2.monthLength);
 
       const dayFraction = (d2.day - tempDay1) / 30.4; // approx.
       return yearMonthDiff + dayFraction;
@@ -50,7 +50,9 @@ export const compare_en = (date1, date2, type) => {
 
     case "years": {
       const yearDiff = d2.year - d1.year;
-      const monthFraction = (d2.month - d1.month + (d2.day - d1.day) / 30) / 12;
+      const tempDay1 = Math.min(d1.day, d2.monthLength);
+      const monthFraction =
+        (d2.month - d1.month + (d2.day - tempDay1) / 30.4) / 12;
       return yearDiff + monthFraction;
     }
 
